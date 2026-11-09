@@ -1,0 +1,585 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JPG Mercantil · Antecipe plantões e honorários</title>
+<meta name="description" content="Médicos, enfermeiros e dentistas: antecipe plantões e honorários de convênio e receba via PIX em até 24h. Simule na hora.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --indigo:#1B3A5C; --indigo-2:#27517E; --indigo-3:#132B45;
+  --terracota:#8C4A2F; --terracota-escura:#733B24; --terracota-clara:#E0B48C;
+  --papel:#F5F0E6; --papel-2:#EFE7D6; --marfim:#FCF9F2; --claro:#F9F5EC;
+  --borda:#D9CFBE; --slate:#6B6356; --tinta:#1E2A36;
+  --f-disp:"Cormorant Garamond","Iowan Old Style",Georgia,serif;
+  --f-corpo:"Inter Tight",-apple-system,"Segoe UI",sans-serif;
+  --raio:14px; --raio-g:22px;
+  --sombra:0 1px 2px rgba(27,58,92,.06),0 10px 28px rgba(27,58,92,.08);
+  --sombra-2:0 2px 4px rgba(27,58,92,.05),0 24px 60px rgba(27,58,92,.16);
+  --curva:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{font-family:var(--f-corpo);background:var(--papel);color:var(--tinta);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}
+img{max-width:100%;display:block}
+.wrap{width:min(1180px,100% - 40px);margin-inline:auto}
+.eyebrow{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--terracota)}
+h1,h2,h3{font-family:var(--f-disp);font-weight:500;line-height:1.05;letter-spacing:-.01em}
+h2{font-size:clamp(36px,5vw,58px);color:var(--indigo)}
+h2 em,h1 em{font-style:italic;font-weight:400}
+.lead{color:var(--slate);font-size:17px;max-width:56ch}
+.btn{white-space:nowrap;display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;font:600 15px/1 var(--f-corpo);padding:16px 26px;border-radius:999px;text-decoration:none;transition:transform .3s var(--curva),background .2s,box-shadow .3s}
+.btn:active{transform:scale(.97)}
+.btn-t{background:var(--terracota);color:#fff;box-shadow:0 8px 22px rgba(140,74,47,.28)}
+.btn-t:hover{background:var(--terracota-escura);transform:translateY(-1px)}
+.btn-o{background:transparent;color:var(--indigo);box-shadow:inset 0 0 0 1.5px var(--indigo)}
+.btn-o:hover{background:var(--indigo);color:var(--papel)}
+.btn svg{width:18px;height:18px}
+.link{color:var(--indigo);font-weight:600;text-decoration:none;border-bottom:1.5px solid var(--terracota);padding-bottom:2px}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;inset:0 0 auto;z-index:50;transition:background .3s,box-shadow .3s}
+.nav.solid{background:rgba(245,240,230,.94);backdrop-filter:blur(8px);box-shadow:0 1px 0 var(--borda)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.logo{font-family:var(--f-disp);font-size:27px;color:var(--papel);text-decoration:none;letter-spacing:-.01em;transition:color .3s}
+.logo em{font-style:italic}
+.nav.solid .logo{color:var(--indigo)}
+.nav ul{display:flex;gap:30px;list-style:none;align-items:center}
+.nav ul a{text-decoration:none;font-size:14.5px;font-weight:500;color:rgba(245,240,230,.82);transition:color .2s}
+.nav ul a:hover{color:#fff}
+.nav.solid ul a{color:var(--indigo)}
+.nav .btn{padding:12px 20px;font-size:14px}
+@media (max-width:860px){.nav ul li:not(:last-child){display:none}}
+
+/* ---------- HERO ---------- */
+.hero{background:radial-gradient(120% 90% at 85% 0%,var(--indigo-2) 0%,var(--indigo) 45%,var(--indigo-3) 100%);color:var(--papel);padding:132px 0 88px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-180px;bottom:-260px;width:620px;height:620px;border-radius:50%;border:1px solid rgba(224,180,140,.18)}
+.hero::before{content:"";position:absolute;right:-90px;bottom:-170px;width:440px;height:440px;border-radius:50%;border:1px solid rgba(224,180,140,.12)}
+.hero .wrap{display:grid;grid-template-columns:1.02fr 1fr;gap:56px;align-items:start;position:relative;z-index:1}
+.hero .eyebrow{color:var(--terracota-clara)}
+.hero h1{font-size:clamp(46px,6.2vw,80px);margin:18px 0 22px;color:var(--papel)}
+.hero h1 em{color:var(--terracota-clara)}
+.hero .lead{color:rgba(245,240,230,.78);font-size:18px}
+.hero .lead strong{color:var(--papel);font-weight:600}
+.selos{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0 34px}
+.selo{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;font-weight:500;padding:9px 14px;border-radius:999px;background:rgba(245,240,230,.07);border:1px solid rgba(245,240,230,.14)}
+.selo svg{width:16px;height:16px;color:var(--terracota-clara)}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.hero .btn-o{color:var(--papel);box-shadow:inset 0 0 0 1.5px rgba(245,240,230,.5)}
+.hero .btn-o:hover{background:var(--papel);color:var(--indigo)}
+
+/* ---------- FORM ---------- */
+.form-card{background:var(--marfim);color:var(--tinta);border-radius:var(--raio-g);padding:30px 30px 24px;box-shadow:0 30px 80px rgba(8,20,36,.45)}
+.form-card h3{font-size:30px;color:var(--indigo)}
+.form-card .sub{font-size:13px;color:var(--slate);margin:4px 0 20px}
+.seg{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;background:var(--papel-2);border-radius:999px;padding:4px;margin-bottom:14px}
+.seg button{border:0;background:transparent;font:600 13.5px var(--f-corpo);color:var(--slate);padding:10px 6px;border-radius:999px;cursor:pointer;transition:background .25s,color .25s}
+.seg button[aria-pressed="true"]{background:var(--indigo);color:var(--papel)}
+.lbl{font-size:12.5px;font-weight:600;color:var(--indigo);margin:2px 0 7px;display:block}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.campo{margin-bottom:12px}
+.campo input,.campo select{width:100%;font:500 15px var(--f-corpo);color:var(--tinta);background:#fff;border:1px solid var(--borda);border-radius:10px;padding:12px 13px;outline:none;transition:border .2s,box-shadow .2s;appearance:none}
+.campo select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%231B3A5C' stroke-width='1.6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center}
+.campo input:focus,.campo select:focus{border-color:var(--indigo-2);box-shadow:0 0 0 3px rgba(39,81,126,.14)}
+.campo input::placeholder{color:#A79E90}
+.form-card .btn{width:100%;margin-top:6px}
+.nota{display:flex;gap:8px;align-items:center;justify-content:center;font-size:12px;color:var(--slate);margin-top:12px;text-align:center}
+.nota svg{width:14px;height:14px;flex:none}
+
+/* ---------- FAIXA ---------- */
+.faixa{background:var(--indigo-3);color:var(--papel);text-align:center;padding:22px 20px;font-family:var(--f-disp);font-size:clamp(21px,2.6vw,28px)}
+.faixa em{color:var(--terracota-clara)}
+
+/* ---------- SECTIONS ---------- */
+section{padding:120px 0}
+.head{max-width:720px;margin-bottom:56px}
+.head.c{margin-inline:auto;text-align:center}
+.head.c .lead{margin-inline:auto}
+.head h2{margin:14px 0 16px}
+
+/* simulador */
+.sim .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}
+.phone{position:relative;width:300px;margin-inline:auto}
+.phone-body{background:#0F1E30;border-radius:46px;padding:12px;box-shadow:var(--sombra-2),0 0 0 2px #2b3a4d inset}
+.screen{background:linear-gradient(180deg,var(--indigo) 0%,var(--indigo-3) 100%);border-radius:36px;height:590px;padding:22px 18px;color:var(--papel);overflow:hidden;position:relative}
+.notch{width:96px;height:26px;background:#0F1E30;border-radius:20px;margin:-8px auto 18px}
+.sc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.sc-top .logo{font-size:21px;color:var(--papel)}
+.sc-bal{background:rgba(245,240,230,.08);border:1px solid rgba(245,240,230,.12);border-radius:20px;padding:18px}
+.sc-bal small{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--terracota-clara);font-weight:600}
+.sc-bal b{display:block;font-family:var(--f-disp);font-size:38px;font-weight:500;margin:4px 0}
+.sc-bal span{font-size:11.5px;color:rgba(245,240,230,.7)}
+.sc-acts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0 20px}
+.sc-acts div{background:rgba(245,240,230,.06);border-radius:14px;padding:12px 4px;text-align:center;font-size:10.5px;color:rgba(245,240,230,.8)}
+.sc-acts svg{width:18px;height:18px;margin:0 auto 6px;color:var(--terracota-clara)}
+.sc-list small{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,230,.55);font-weight:600}
+.op{display:flex;align-items:center;gap:10px;padding:11px 0;border-bottom:1px solid rgba(245,240,230,.08);font-size:12px}
+.op i{width:30px;height:30px;border-radius:10px;background:rgba(224,180,140,.15);display:grid;place-items:center;font-style:normal;color:var(--terracota-clara);font-weight:700;font-size:11px}
+.op div{flex:1;line-height:1.3}
+.op div span{display:block;font-size:10.5px;color:rgba(245,240,230,.55)}
+.op b{color:var(--terracota-clara);font-weight:600}
+.flutua{position:absolute;background:var(--marfim);color:var(--indigo);border-radius:16px;padding:10px 14px;box-shadow:var(--sombra-2);font-size:12px;line-height:1.25;display:flex;gap:10px;align-items:center;animation:boia 5s ease-in-out infinite}
+.flutua b{display:block;font-size:13.5px}
+.flutua i{width:30px;height:30px;border-radius:50%;background:var(--terracota);color:#fff;display:grid;place-items:center;font-style:normal}
+.flutua i svg{width:15px;height:15px}
+.f1{left:-58px;top:70px}
+.f2{right:-62px;top:250px;animation-delay:-2.5s}
+@keyframes boia{50%{transform:translateY(-8px)}}
+
+.sim-card{background:var(--marfim);border:1px solid var(--borda);border-radius:var(--raio-g);padding:36px;box-shadow:var(--sombra)}
+.sim-card .lbl{font-size:13.5px}
+.valor-in{width:100%;text-align:center;font:500 40px var(--f-disp);color:var(--indigo);background:#fff;border:1px solid var(--borda);border-radius:14px;padding:12px;outline:none}
+.valor-in:focus{border-color:var(--indigo-2);box-shadow:0 0 0 3px rgba(39,81,126,.14)}
+.dias-h{display:flex;justify-content:space-between;align-items:center;margin:28px 0 12px}
+.pill{background:var(--indigo);color:var(--papel);font-weight:600;font-size:13px;padding:6px 14px;border-radius:999px}
+.dias{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.dias button{border:1px solid var(--borda);background:#fff;border-radius:12px;padding:12px 0;font:600 15px var(--f-corpo);color:var(--slate);cursor:pointer;transition:all .25s var(--curva)}
+.dias button:hover{border-color:var(--indigo-2);color:var(--indigo)}
+.dias button[aria-pressed="true"]{background:var(--indigo);border-color:var(--indigo);color:var(--papel);transform:translateY(-2px)}
+.result{margin:28px 0 22px;background:var(--indigo);color:var(--papel);border-radius:18px;padding:26px;text-align:center;position:relative;overflow:hidden}
+.result small{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--terracota-clara);font-weight:600}
+.result b{display:block;font:500 clamp(46px,6vw,60px)/1.05 var(--f-disp);margin:6px 0 10px}
+.result .det{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;font-size:12.5px;color:rgba(245,240,230,.72)}
+.sim-card .btn{width:100%}
+.sim-card .nota{margin-top:14px}
+
+/* problema */
+.prob{background:var(--papel-2)}
+.prob-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--indigo)}
+.prob-grid article{padding:26px 26px 0 0}
+.prob-grid article + article{padding-left:26px;border-left:1px solid var(--borda)}
+.prob-grid .n{font-size:12px;font-weight:600;color:var(--terracota);letter-spacing:.08em}
+.prob-grid h3{font-size:27px;color:var(--indigo);margin:10px 0 10px}
+.prob-grid p{font-size:14.5px;color:var(--slate)}
+.prob .fim{margin-top:56px;display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.prob .fim p{font-family:var(--f-disp);font-size:clamp(26px,3vw,34px);color:var(--indigo);font-style:italic}
+
+/* passos */
+.passos{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;counter-reset:p}
+.passos::before{content:"";position:absolute;top:34px;left:12.5%;right:12.5%;border-top:2px dashed var(--terracota-clara)}
+.passo{text-align:center;position:relative}
+.passo .num{width:68px;height:68px;border-radius:50%;background:var(--terracota);color:#fff;display:grid;place-items:center;margin:0 auto 22px;font:500 32px var(--f-disp);box-shadow:0 0 0 8px var(--papel),0 10px 26px rgba(140,74,47,.3);position:relative}
+.passo .tag{display:inline-block;font-size:11.5px;font-weight:600;color:var(--terracota-escura);background:#F1DFCC;border-radius:999px;padding:4px 11px;margin-bottom:10px}
+.passo h3{font-size:28px;color:var(--indigo);margin-bottom:8px}
+.passo p{font-size:14.5px;color:var(--slate);max-width:28ch;margin-inline:auto}
+.passos-cta{text-align:center;margin-top:56px}
+
+/* comparação */
+.comp{background:var(--indigo);color:var(--papel)}
+.comp h2{color:var(--papel)}
+.comp h2 em{color:var(--terracota-clara)}
+.comp .eyebrow{color:var(--terracota-clara)}
+.comp .lead{color:rgba(245,240,230,.72)}
+.tabela{max-width:880px;margin-inline:auto;border-radius:var(--raio-g);overflow:hidden;background:rgba(245,240,230,.04);border:1px solid rgba(245,240,230,.12)}
+.tr{display:grid;grid-template-columns:1fr 1.2fr 1.2fr}
+.tr > div{padding:17px 22px;font-size:14.5px;display:flex;gap:10px;align-items:flex-start}
+.tr + .tr{border-top:1px solid rgba(245,240,230,.09)}
+.tr.th > div{font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:rgba(245,240,230,.6)}
+.tr.th > div:last-child{color:var(--terracota-clara)}
+.tr > div:first-child{font-weight:600;color:var(--papel)}
+.tr > div:nth-child(2){color:rgba(245,240,230,.6)}
+.tr > div:last-child{background:rgba(224,180,140,.09);color:var(--papel)}
+.tr svg{width:16px;height:16px;flex:none;margin-top:3px}
+.x{color:#D9897A}.ok{color:var(--terracota-clara)}
+.comp .rodape{max-width:640px;margin:26px auto 0;text-align:center;font-size:13.5px;color:rgba(245,240,230,.6)}
+.comp .passos-cta{margin-top:36px}
+
+/* FAQ */
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:72px;align-items:start}
+.faq h2{position:sticky;top:110px}
+.faq details{border-bottom:1px solid var(--borda)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:center;padding:22px 0;font:500 24px/1.2 var(--f-disp);color:var(--indigo)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font:300 30px var(--f-corpo);color:var(--terracota);transition:transform .35s var(--curva)}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{color:var(--slate);padding:0 40px 22px 0;font-size:15.5px}
+.faq .mais{margin-top:30px;display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+
+/* CTA final */
+.final{background:var(--papel-2);padding:96px 0}
+.final .wrap{display:flex;justify-content:space-between;align-items:center;gap:40px;flex-wrap:wrap}
+.final h2{font-size:clamp(34px,4.4vw,52px)}
+.final .acts{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+
+footer{background:var(--indigo);color:rgba(245,240,230,.75);padding:64px 0 32px;font-size:14px}
+footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:40px;border-bottom:1px solid rgba(245,240,230,.12)}
+footer .logo{color:var(--papel);display:inline-block;margin-bottom:12px}
+footer h4{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--terracota-clara);font-weight:600;margin-bottom:14px}
+footer ul{list-style:none;display:grid;gap:8px}
+footer a{text-decoration:none}
+footer a:hover{color:var(--papel)}
+footer .legal{padding-top:24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:12.5px;color:rgba(245,240,230,.5)}
+
+/* whatsapp flutuante */
+.wpp{opacity:0;pointer-events:none;transition:opacity .3s,transform .3s var(--curva);position:fixed;right:20px;bottom:20px;z-index:40;width:58px;height:58px;border-radius:50%;background:var(--terracota);color:#fff;display:grid;place-items:center;box-shadow:0 10px 28px rgba(140,74,47,.4);transition:transform .3s var(--curva)}
+.wpp.on{opacity:1;pointer-events:auto}.wpp:hover{transform:scale(1.06)}
+.wpp svg{width:28px;height:28px}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .9s var(--curva),transform .9s var(--curva)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}.flutua{animation:none}html{scroll-behavior:auto}}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width:1000px){
+  .hero .wrap,.sim .wrap,.faq .wrap{grid-template-columns:1fr;gap:48px}
+  .faq h2{position:static}
+  .prob-grid{grid-template-columns:1fr 1fr;row-gap:34px}
+  .prob-grid article:nth-child(3){padding-left:0;border-left:0}
+  .sim .phone{order:2}
+}
+@media (max-width:640px){
+  .wrap{width:calc(100% - 32px)}
+  section{padding:80px 0}
+  .hero{padding:104px 0 56px}
+  .hero .lead{font-size:16.5px}
+  .form-card{padding:24px 18px 20px;border-radius:18px}
+  .grid2{grid-template-columns:1fr 1fr;gap:10px}
+  .grid2.st{grid-template-columns:1fr}
+  .hero-ctas .btn{flex:1}
+  .prob-grid{grid-template-columns:1fr;border-top:0}
+  .prob-grid article,.prob-grid article + article{padding:20px 0 0;border-left:0;border-top:1px solid var(--borda)}
+  .prob-grid article:first-child{border-top:1px solid var(--indigo)}
+  .passos{grid-template-columns:1fr;gap:34px;text-align:left}
+  .passos::before{top:34px;bottom:34px;left:33px;right:auto;border-top:0;border-left:2px dashed var(--terracota-clara)}
+  .passo{display:grid;grid-template-columns:68px 1fr;gap:18px;text-align:left}
+  .passo .num{margin:0}
+  .passo p{margin:0}
+  .sim-card{padding:24px 18px}
+  .dias{gap:6px}
+  .sim .phone{display:none}
+  .hero-ctas .btn{padding:15px 18px}
+  footer li{overflow-wrap:anywhere}
+  .tr{grid-template-columns:.85fr 1fr 1fr}
+  .tr > div{padding:14px 10px;font-size:13px;gap:6px}
+  .tr.th > div{font-size:11px}
+  .tr svg{display:none}
+  .faq summary{font-size:21px}
+  footer .cols{grid-template-columns:1fr 1fr}
+  footer .cols > div:first-child{grid-column:1/-1}
+  .final .acts .btn{flex:1}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wpp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 2.9 2.9 0 0 0-.9 2.2 5 5 0 0 0 1 2.7 11.5 11.5 0 0 0 4.4 3.9c1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol>
+  <symbol id="i-relogio" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-pix" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M12 3 21 12 12 21 3 12Z"/><path d="M8 12h8"/></symbol>
+  <symbol id="i-cel" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="6" y="2.5" width="12" height="19" rx="2.5"/><path d="M11 18h2"/></symbol>
+  <symbol id="i-cad" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></symbol>
+  <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></symbol>
+  <symbol id="i-hist" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 19h16M7 15l3-4 3 2 4-6"/></symbol>
+</svg>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a href="#topo" class="logo" aria-label="JPG Mercantil, início">JPG <em>Mercantil</em></a>
+    <ul>
+      <li><a href="#simulador">Simulador</a></li>
+      <li><a href="#como-funciona">Como funciona</a></li>
+      <li><a href="#perguntas">Perguntas</a></li>
+      <li><a href="#pedido" class="btn btn-t">Antecipar agora</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="topo">
+<!-- HERO + PEDIDO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Para médicos, enfermeiros e dentistas</span>
+      <h1>Trabalhou no plantão?<br><em>Receba em até 24h.</em></h1>
+      <p class="lead">O hospital e o convênio pagam em 30, 60 ou 90 dias. A JPG antecipa seus plantões e honorários e o dinheiro cai via PIX, <strong>sem empréstimo e sem parcela.</strong></p>
+      <div class="selos">
+        <span class="selo"><svg><use href="#i-relogio"/></svg>Em até 24h úteis</span>
+        <span class="selo"><svg><use href="#i-pix"/></svg>Direto no PIX</span>
+        <span class="selo"><svg><use href="#i-cel"/></svg>100% pelo celular</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="#simulador" class="btn btn-t">Simular agora <svg><use href="#i-seta"/></svg></a>
+        <a href="https://wa.me/5534991451135?text=Ol%C3%A1%2C%20quero%20antecipar%20meus%20plant%C3%B5es%20com%20a%20JPG." class="btn btn-o" target="_blank" rel="noopener"><svg><use href="#i-wpp"/></svg>WhatsApp</a>
+      </div>
+    </div>
+
+    <form class="form-card rv" id="pedido" novalidate>
+      <h3>Peça sua antecipação</h3>
+      <p class="sub">Sem compromisso · Resposta no mesmo dia</p>
+
+      <div class="seg" role="group" aria-label="Profissão" data-campo="prof">
+        <button type="button" aria-pressed="true" data-v="Médico(a)" data-reg="CRM">Médico(a)</button>
+        <button type="button" aria-pressed="false" data-v="Enfermeiro(a)" data-reg="COREN">Enfermeiro(a)</button>
+        <button type="button" aria-pressed="false" data-v="Dentista" data-reg="CRO">Dentista</button>
+      </div>
+      <div class="seg" role="group" aria-label="Tipo" data-campo="tipo">
+        <button type="button" aria-pressed="true" data-v="Plantão">Plantão</button>
+        <button type="button" aria-pressed="false" data-v="Honorário de convênio">Honorário de convênio</button>
+      </div>
+
+      <div class="campo">
+        <label class="lbl" for="f-nome">Nome completo</label>
+        <input id="f-nome" name="nome" autocomplete="name" placeholder="Seu nome" required>
+      </div>
+      <div class="grid2">
+        <div class="campo">
+          <label class="lbl" for="f-reg" id="lbl-reg">CRM</label>
+          <input id="f-reg" name="registro" inputmode="numeric" placeholder="000000">
+        </div>
+        <div class="campo">
+          <label class="lbl" for="f-uf">UF</label>
+          <select id="f-uf" name="uf"></select>
+        </div>
+      </div>
+      <div class="campo">
+        <label class="lbl" for="f-pagador" id="lbl-pagador">Hospital que paga o plantão</label>
+        <input id="f-pagador" name="pagador" placeholder="Ex.: Hospital Santa Clara">
+      </div>
+      <div class="grid2">
+        <div class="campo">
+          <label class="lbl" for="f-valor">Valor a receber</label>
+          <input id="f-valor" name="valor" inputmode="numeric" placeholder="R$ 0,00">
+        </div>
+        <div class="campo">
+          <label class="lbl" for="f-data">Pagamento previsto</label>
+          <input id="f-data" name="data" type="date">
+        </div>
+      </div>
+      <div class="campo">
+        <label class="lbl" for="f-cel">Celular / WhatsApp</label>
+        <input id="f-cel" name="cel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000">
+      </div>
+      <button class="btn btn-t" type="submit">Enviar pedido pelo WhatsApp <svg><use href="#i-seta"/></svg></button>
+      <p class="nota"><svg><use href="#i-cad"/></svg>O pedido vai direto para a conversa com a JPG. Nada fica salvo no site.</p>
+    </form>
+  </div>
+</section>
+
+<div class="faixa">Trabalhou? <em>Receba agora.</em> Plantões e honorários em até 24h.</div>
+
+<!-- SIMULADOR -->
+<section class="sim" id="simulador">
+  <div class="wrap">
+    <div class="phone rv" aria-hidden="true">
+      <div class="phone-body"><div class="screen">
+        <div class="notch"></div>
+        <div class="sc-top"><span class="logo">JPG <em>Mercantil</em></span><svg width="18" height="18"><use href="#i-relogio"/></svg></div>
+        <div class="sc-bal"><small>Antecipado este mês</small><b>R$ 4.720</b><span>✓ PIX recebido hoje, 10:42</span></div>
+        <div class="sc-acts">
+          <div><svg><use href="#i-pix"/></svg>Antecipar</div>
+          <div><svg><use href="#i-cel"/></svg>Receber</div>
+          <div><svg><use href="#i-hist"/></svg>Histórico</div>
+        </div>
+        <div class="sc-list"><small>Últimas operações</small>
+          <div class="op"><i>PL</i><div>Plantão 12h<span>Hospital · 30 dias</span></div><b>+R$ 1.923</b></div>
+          <div class="op"><i>HO</i><div>Honorários<span>Convênio · 60 dias</span></div><b>+R$ 1.849</b></div>
+          <div class="op"><i>PL</i><div>Plantão noturno<span>UPA · 15 dias</span></div><b>+R$ 948</b></div>
+        </div>
+      </div></div>
+      <div class="flutua f1"><i><svg><use href="#i-pix"/></svg></i><div>PIX enviado<b>em até 24h</b></div></div>
+      <div class="flutua f2"><i><svg><use href="#i-ok"/></svg></i><div>Aprovado<b>100% digital</b></div></div>
+    </div>
+
+    <div class="rv">
+      <div class="head" style="margin-bottom:32px">
+        <span class="eyebrow">Simulador</span>
+        <h2>Veja agora<br><em>quanto você recebe</em></h2>
+        <p class="lead">Digite o valor do plantão ou do honorário e quantos dias faltam para o pagamento. A conta aparece na hora, com a taxa à mostra.</p>
+      </div>
+      <div class="sim-card">
+        <label class="lbl" for="s-valor">Valor do plantão ou honorário</label>
+        <input class="valor-in" id="s-valor" inputmode="numeric" value="R$ 1.000,00">
+        <div class="dias-h"><span class="lbl" style="margin:0">Dias até o pagamento</span><span class="pill" id="s-pill">30 dias</span></div>
+        <div class="dias" role="group" aria-label="Dias até o pagamento">
+          <button type="button" data-d="15" aria-pressed="false">15</button>
+          <button type="button" data-d="30" aria-pressed="true">30</button>
+          <button type="button" data-d="45" aria-pressed="false">45</button>
+          <button type="button" data-d="60" aria-pressed="false">60</button>
+          <button type="button" data-d="90" aria-pressed="false">90</button>
+        </div>
+        <div class="result" aria-live="polite">
+          <small>Você recebe agora</small>
+          <b id="s-liq">R$ 961,54</b>
+          <div class="det"><span>Taxa: 4% ao mês</span><span id="s-custo">Custo: R$ 38,46</span></div>
+        </div>
+        <a href="#pedido" class="btn btn-t" id="s-pedir">Quero antecipar este valor <svg><use href="#i-seta"/></svg></a>
+        <p class="nota">Estimativa. O valor final sai na proposta, depois da análise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEMA -->
+<section class="prob">
+  <div class="wrap">
+    <div class="head rv">
+      <span class="eyebrow">O problema</span>
+      <h2>Você trabalha hoje,<br><em>mas só recebe daqui a 30, 60, 90 dias</em></h2>
+      <p class="lead">O serviço já foi prestado e o dinheiro é seu. Só que hospital e convênio pagam no tempo deles.</p>
+    </div>
+    <div class="prob-grid rv">
+      <article><span class="n">01</span><h3>Pagamento que demora</h3><p>Plantões e honorários de convênio levam de 30 a 90 dias para cair.</p></article>
+      <article><span class="n">02</span><h3>Cheque especial</h3><p>Enquanto espera, as contas do mês acabam indo para o crédito mais caro do banco.</p></article>
+      <article><span class="n">03</span><h3>Sem previsão</h3><p>Glosa, atraso e data que muda deixam difícil planejar o mês.</p></article>
+      <article><span class="n">04</span><h3>Banco burocrático</h3><p>Empréstimo pede papelada, análise demorada e vira parcela.</p></article>
+    </div>
+    <div class="fim rv"><p>Existe um jeito melhor.</p><a href="#como-funciona" class="link">Ver como funciona</a></div>
+  </div>
+</section>
+
+<!-- PASSOS -->
+<section id="como-funciona">
+  <div class="wrap">
+    <div class="head c rv">
+      <span class="eyebrow">Como funciona</span>
+      <h2>Do plantão ao PIX<br><em>em 4 passos</em></h2>
+      <p class="lead">Tudo pelo celular, com uma pessoa da JPG acompanhando cada pedido.</p>
+    </div>
+    <div class="passos rv">
+      <div class="passo"><span class="num">1</span><div><span class="tag">Como sempre</span><h3>Você trabalha</h3><p>Faz o plantão ou o atendimento pelo convênio normalmente.</p></div></div>
+      <div class="passo"><span class="num">2</span><div><span class="tag">Em 2 minutos</span><h3>Envia o pedido</h3><p>Diz quanto tem a receber, de quem e quando. O resto a gente pede pelo WhatsApp.</p></div></div>
+      <div class="passo"><span class="num">3</span><div><span class="tag">Taxa à mostra</span><h3>Recebe a proposta</h3><p>A JPG analisa e manda o valor líquido. Você aceita ou não, sem custo.</p></div></div>
+      <div class="passo"><span class="num">4</span><div><span class="tag">Em até 24h úteis</span><h3>Dinheiro no PIX</h3><p>Aceitou, o valor cai na sua conta. Quando o hospital paga, ele paga à JPG.</p></div></div>
+    </div>
+    <div class="passos-cta rv"><a href="#pedido" class="btn btn-t">Começar agora <svg><use href="#i-seta"/></svg></a></div>
+  </div>
+</section>
+
+<!-- COMPARAÇÃO -->
+<section class="comp">
+  <div class="wrap">
+    <div class="head c rv">
+      <span class="eyebrow">Entenda a diferença</span>
+      <h2>Antecipação <em>não é</em> empréstimo</h2>
+      <p class="lead">Você não pega dinheiro emprestado. Você recebe antes o que já é seu.</p>
+    </div>
+    <div class="tabela rv" role="table" aria-label="Empréstimo comparado à antecipação da JPG">
+      <div class="tr th" role="row"><div role="columnheader"></div><div role="columnheader">Empréstimo</div><div role="columnheader">JPG</div></div>
+      <div class="tr" role="row"><div role="rowheader">Pagamento</div><div role="cell"><svg class="x"><use href="#i-x"/></svg>Várias parcelas por mês</div><div role="cell"><svg class="ok"><use href="#i-ok"/></svg>Sem parcela: o hospital quita</div></div>
+      <div class="tr" role="row"><div role="rowheader">Custo</div><div role="cell"><svg class="x"><use href="#i-x"/></svg>Juros compostos por meses</div><div role="cell"><svg class="ok"><use href="#i-ok"/></svg>Taxa única, só pelos dias que faltam</div></div>
+      <div class="tr" role="row"><div role="rowheader">Análise</div><div role="cell"><svg class="x"><use href="#i-x"/></svg>Sua renda e seu score</div><div role="cell"><svg class="ok"><use href="#i-ok"/></svg>Quem paga o plantão</div></div>
+      <div class="tr" role="row"><div role="rowheader">Processo</div><div role="cell"><svg class="x"><use href="#i-x"/></svg>Agência e muitos papéis</div><div role="cell"><svg class="ok"><use href="#i-ok"/></svg>100% pelo celular</div></div>
+      <div class="tr" role="row"><div role="rowheader">Prazo</div><div role="cell"><svg class="x"><use href="#i-x"/></svg>Dias ou semanas</div><div role="cell"><svg class="ok"><use href="#i-ok"/></svg>Até 24h úteis</div></div>
+    </div>
+    <p class="rodape rv">Na antecipação, você cede à JPG o direito de receber um valor que já existe: o plantão feito ou o honorário do convênio.</p>
+    <div class="passos-cta rv"><a href="#pedido" class="btn btn-t">Quero antecipar agora <svg><use href="#i-seta"/></svg></a></div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="perguntas">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Perguntas</span>
+      <h2>O que quase<br>todo mundo<br><em>pergunta primeiro</em></h2>
+    </div>
+    <div class="rv">
+      <details open><summary>O que é antecipar plantão ou honorário?</summary><p>É receber hoje um valor que o hospital ou o convênio só vai pagar daqui a algumas semanas. A JPG paga você agora e depois recebe direto de quem deve.</p></details>
+      <details><summary>Quanto custa?</summary><p>4% ao mês, contado só pelos dias que faltam para o pagamento. Em 30 dias, de R$ 1.000 você recebe R$ 961,54. O simulador mostra a conta para qualquer valor e prazo, e a proposta final vem por escrito antes de você aceitar.</p></details>
+      <details><summary>Em quanto tempo o dinheiro cai?</summary><p>Em até 24 horas úteis depois que você aceita a proposta, via PIX.</p></details>
+      <details><summary>Antecipa honorário de convênio também?</summary><p>Sim. Plantões em hospitais, UPAs e clínicas e honorários de convênios médicos e odontológicos. A JPG confere quem paga antes de fazer a proposta.</p></details>
+      <details><summary>Preciso ter conta em algum banco?</summary><p>Não. Qualquer conta com chave PIX no seu nome serve.</p></details>
+      <details><summary>Vira parcela ou dívida?</summary><p>Não. Você não paga parcelas: quem quita é o hospital ou o convênio, direto para a JPG, na data combinada.</p></details>
+      <details><summary>Quais documentos vou precisar?</summary><p>Documento com foto, registro no conselho (CRM, COREN ou CRO) e o comprovante do valor a receber, como a escala do plantão ou o demonstrativo do convênio. A JPG pede tudo pelo WhatsApp.</p></details>
+      <div class="mais">
+        <a href="https://wa.me/5534991451135?text=Ol%C3%A1%2C%20tenho%20uma%20d%C3%BAvida%20sobre%20antecipar%20plant%C3%B5es." class="btn btn-o" target="_blank" rel="noopener"><svg><use href="#i-wpp"/></svg>Perguntar no WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="wrap rv">
+    <div>
+      <h2>Já trabalhou?<br><em>Então já pode receber.</em></h2>
+      <p class="lead" style="margin-top:12px">Simule, peça e receba no PIX em até 24h úteis.</p>
+    </div>
+    <div class="acts">
+      <a href="#pedido" class="btn btn-t">Antecipar agora <svg><use href="#i-seta"/></svg></a>
+      <a href="#simulador" class="link">Simular primeiro</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div><a href="#topo" class="logo">JPG <em>Mercantil</em></a><p>Antecipação de plantões e honorários para médicos, enfermeiros e dentistas.</p></div>
+      <div><h4>Navegação</h4><ul><li><a href="#simulador">Simulador</a></li><li><a href="#como-funciona">Como funciona</a></li><li><a href="#perguntas">Perguntas</a></li><li><a href="#pedido">Pedir antecipação</a></li></ul></div>
+      <div><h4>Contato</h4><ul><li><a href="https://wa.me/5534991451135" target="_blank" rel="noopener">WhatsApp (34) 99145-1135</a></li><li><a href="mailto:jpgmercantil@outlook.com">jpgmercantil@outlook.com</a></li><li>São Paulo, SP</li></ul></div>
+    </div>
+    <div class="legal"><span>JPG Securitizadora Ltda · CNPJ 66.649.405/0001-63 · São Paulo, SP</span><span>A simulação é uma estimativa e não é proposta de compra.</span></div>
+  </div>
+</footer>
+
+<a class="wpp" href="https://wa.me/5534991451135?text=Ol%C3%A1%2C%20quero%20antecipar%20meus%20plant%C3%B5es%20com%20a%20JPG." target="_blank" rel="noopener" aria-label="Falar com a JPG no WhatsApp"><svg><use href="#i-wpp"/></svg></a>
+
+<script>
+(()=>{
+  const WPP='5534991451135', TAXA=0.04;
+  const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+  const lerMoeda=s=>parseInt((s||'').replace(/\D/g,'')||'0',10)/100;
+  const mascMoeda=el=>el.addEventListener('input',()=>{const v=lerMoeda(el.value);el.value=v?brl(v):'';});
+
+  // nav
+  const nav=document.getElementById('nav');
+  const wpp=document.querySelector('.wpp'),hero=document.querySelector('.hero');
+  const onScroll=()=>{nav.classList.toggle('solid',scrollY>40);wpp.classList.toggle('on',scrollY>hero.offsetHeight-200);};
+  addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+  // reveal
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // simulador: líquido = valor / (1+taxa)^(dias/30)
+  const sv=document.getElementById('s-valor'), liq=document.getElementById('s-liq'), custo=document.getElementById('s-custo'), pill=document.getElementById('s-pill');
+  let dias=30;
+  const calc=()=>{const v=lerMoeda(sv.value);const l=v/Math.pow(1+TAXA,dias/30);liq.textContent=v>0?brl(l):'—';custo.textContent='Custo: '+(v>0?brl(v-l):'—');pill.textContent=dias+' dias';};
+  sv.addEventListener('input',()=>{const v=lerMoeda(sv.value);sv.value=v?brl(v):'';calc();});
+  document.querySelectorAll('.dias button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.dias button').forEach(x=>x.setAttribute('aria-pressed',x===b));dias=+b.dataset.d;calc();}));
+  calc();
+  document.getElementById('s-pedir').addEventListener('click',()=>{
+    const v=lerMoeda(sv.value); if(v){document.getElementById('f-valor').value=brl(v);}
+    const d=new Date();d.setDate(d.getDate()+dias);document.getElementById('f-data').value=d.toISOString().slice(0,10);
+    setTimeout(()=>document.getElementById('f-nome').focus({preventScroll:true}),700);
+  });
+
+  // formulário
+  const ufs='AC AL AM AP BA CE DF ES GO MA MG MS MT PA PB PE PI PR RJ RN RO RR RS SC SE SP TO'.split(' ');
+  const uf=document.getElementById('f-uf');
+  uf.innerHTML='<option value="">UF</option>'+ufs.map(u=>`<option${u==='MG'?' selected':''}>${u}</option>`).join('');
+  const escolha={prof:'Médico(a)',tipo:'Plantão'};
+  document.querySelectorAll('.seg').forEach(g=>g.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+    g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+    escolha[g.dataset.campo]=b.dataset.v;
+    if(b.dataset.reg) document.getElementById('lbl-reg').textContent=b.dataset.reg;
+    if(g.dataset.campo==='tipo'){const h=b.dataset.v==='Plantão';document.getElementById('lbl-pagador').textContent=h?'Hospital que paga o plantão':'Convênio que paga o honorário';document.getElementById('f-pagador').placeholder=h?'Ex.: Hospital Santa Clara':'Ex.: nome do convênio';}
+  })));
+  mascMoeda(document.getElementById('f-valor'));
+  const cel=document.getElementById('f-cel');
+  cel.addEventListener('input',()=>{let d=cel.value.replace(/\D/g,'').slice(0,11);cel.value=d.length>6?`(${d.slice(0,2)}) ${d.slice(2,7)}-${d.slice(7)}`:d.length>2?`(${d.slice(0,2)}) ${d.slice(2)}`:d;});
+
+  document.getElementById('pedido').addEventListener('submit',e=>{
+    e.preventDefault();
+    const f=e.target, nome=f.nome.value.trim();
+    if(!nome){f.nome.focus();f.nome.style.borderColor='#9A2F2F';return;}
+    const dt=f.data.value?f.data.value.split('-').reverse().join('/'):'';
+    const reg=document.getElementById('lbl-reg').textContent;
+    const linhas=['Olá, quero antecipar com a JPG.','',
+      `Nome: ${nome}`,`Profissão: ${escolha.prof}`+(f.registro.value?` · ${reg} ${f.registro.value}`:'')+(f.uf.value?`/${f.uf.value}`:''),
+      `Tipo: ${escolha.tipo}`, f.pagador.value&&`Quem paga: ${f.pagador.value}`, f.valor.value&&`Valor a receber: ${f.valor.value}`, dt&&`Pagamento previsto: ${dt}`, f.cel.value&&`Celular: ${f.cel.value}`].filter(Boolean);
+    window.open(`https://wa.me/${WPP}?text=${encodeURIComponent(linhas.join('\n'))}`,'_blank','noopener');
+  });
+})();
+</script>
+</body>
+</html>
