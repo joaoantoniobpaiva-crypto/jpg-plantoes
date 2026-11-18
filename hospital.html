@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://*.supabase.co; form-action 'none'; base-uri 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex,nofollow">
+<title>JPG Mercantil · Área do hospital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter+Tight:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg width="0" height="0" class="sprite" aria-hidden="true">
+  <symbol id="i-ok" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></symbol>
+  <symbol id="i-seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+</svg>
+
+<header class="nav solid" id="nav">
+  <div class="wrap">
+    <a href="index.html" class="logo" aria-label="JPG Mercantil, início">JPG <em>Mercantil</em></a>
+    <ul><li><a href="index.html" class="btn btn-o">Voltar ao site</a></li></ul>
+  </div>
+</header>
+
+<main class="portal">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Área do hospital</span>
+      <h1>Envie os plantões<br><em>com segurança.</em></h1>
+      <p class="lead">Área restrita para hospitais, clínicas e operadoras repassarem à JPG a escala de plantões e a relação de honorários dos seus profissionais.</p>
+      <ul class="lista">
+        <li><svg><use href="#i-ok"/></svg>Acesso por e-mail e senha, só para hospitais liberados pela JPG.</li>
+        <li><svg><use href="#i-ok"/></svg>Cada hospital vê apenas o que ele mesmo enviou.</li>
+        <li><svg><use href="#i-ok"/></svg>Arquivos em armazenamento privado: ninguém acessa por link público.</li>
+        <li><svg><use href="#i-ok"/></svg>Dados de pacientes nunca aparecem no site nem no WhatsApp: só dentro desta área.</li>
+      </ul>
+      <a class="voltar" href="index.html">← Voltar ao site da JPG</a>
+    </div>
+
+    <div>
+      <!-- sem configuração -->
+      <div class="pcard oculto" id="v-off">
+        <h2>Área em preparação</h2>
+        <p class="sub">A área do hospital ainda não foi ativada. Fale com a JPG pelo WhatsApp: <a class="link" href="https://wa.me/5534991451135" target="_blank" rel="noopener">(34) 99145-1135</a>.</p>
+      </div>
+
+      <!-- login -->
+      <form class="pcard" id="v-login" novalidate>
+        <h2>Entrar</h2>
+        <p class="sub">Use o e-mail e a senha do seu hospital.</p>
+        <div class="campo"><label class="lbl" for="l-email">E-mail</label><input id="l-email" type="email" autocomplete="username" required></div>
+        <div class="campo"><label class="lbl" for="l-senha">Senha</label><input id="l-senha" type="password" autocomplete="current-password" required></div>
+        <button class="btn btn-t" type="submit">Entrar <svg><use href="#i-seta"/></svg></button>
+        <p class="msg" id="l-msg" role="alert"></p>
+        <div class="troca"><button type="button" class="linkbtn" id="ir-reset">Esqueci a senha</button><span>·</span><button type="button" class="linkbtn" id="ir-cadastro">Cadastrar hospital</button></div>
+      </form>
+
+      <!-- cadastro -->
+      <form class="pcard oculto" id="v-cadastro" novalidate>
+        <h2>Cadastrar hospital</h2>
+        <p class="sub">Depois do cadastro a JPG confere os dados e libera o acesso.</p>
+        <div class="campo"><label class="lbl" for="c-razao">Nome do hospital / clínica</label><input id="c-razao" autocomplete="organization" maxlength="120" required></div>
+        <div class="grid2">
+          <div class="campo"><label class="lbl" for="c-cnpj">CNPJ</label><input id="c-cnpj" inputmode="numeric" maxlength="18" placeholder="00.000.000/0000-00" required></div>
+          <div class="campo"><label class="lbl" for="c-tel">Telefone</label><input id="c-tel" inputmode="tel" autocomplete="tel" placeholder="(00) 00000-0000"></div>
+        </div>
+        <div class="campo"><label class="lbl" for="c-resp">Responsável</label><input id="c-resp" autocomplete="name" maxlength="100" required></div>
+        <div class="campo"><label class="lbl" for="c-email">E-mail</label><input id="c-email" type="email" autocomplete="email" required></div>
+        <div class="campo"><label class="lbl" for="c-senha">Senha (mínimo 10 caracteres)</label><input id="c-senha" type="password" autocomplete="new-password" minlength="10" required></div>
+        <button class="btn btn-t" type="submit">Criar cadastro <svg><use href="#i-seta"/></svg></button>
+        <p class="msg" id="c-msg" role="alert"></p>
+        <div class="troca"><span>Já tem cadastro?</span><button type="button" class="linkbtn" id="ir-login1">Entrar</button></div>
+      </form>
+
+      <!-- redefinir senha -->
+      <form class="pcard oculto" id="v-reset" novalidate>
+        <h2>Redefinir senha</h2>
+        <p class="sub">Enviamos um link para o seu e-mail.</p>
+        <div class="campo"><label class="lbl" for="r-email">E-mail</label><input id="r-email" type="email" autocomplete="username" required></div>
+        <button class="btn btn-t" type="submit">Enviar link</button>
+        <p class="msg" id="r-msg" role="alert"></p>
+        <div class="troca"><button type="button" class="linkbtn" id="ir-login2">Voltar</button></div>
+      </form>
+
+      <!-- nova senha (depois do link do e-mail) -->
+      <form class="pcard oculto" id="v-nova" novalidate>
+        <h2>Nova senha</h2>
+        <p class="sub">Escolha uma senha com pelo menos 10 caracteres.</p>
+        <div class="campo"><label class="lbl" for="n-senha">Nova senha</label><input id="n-senha" type="password" autocomplete="new-password" minlength="10" required></div>
+        <button class="btn btn-t" type="submit">Salvar senha</button>
+        <p class="msg" id="n-msg" role="alert"></p>
+      </form>
+
+      <!-- painel -->
+      <section class="pcard oculto" id="v-painel">
+        <div class="status-top"><h2 id="p-nome">Seu hospital</h2><span class="badge pend" id="p-badge">Em análise</span></div>
+        <p class="sub" id="p-sub"></p>
+
+        <form id="v-envio" novalidate>
+          <p class="aviso">Informe só o necessário. Dados de pacientes (quando a guia tiver) vão apenas no arquivo anexado, nunca nos campos de texto.</p>
+          <div class="grid2">
+            <div class="campo"><label class="lbl" for="e-tipo">Tipo</label>
+              <select id="e-tipo"><option value="plantao">Plantões</option><option value="honorario">Honorários de convênio</option></select></div>
+            <div class="campo"><label class="lbl" for="e-comp">Competência</label><input id="e-comp" type="month" required></div>
+          </div>
+          <div class="grid2">
+            <div class="campo"><label class="lbl" for="e-valor">Valor total</label><input id="e-valor" inputmode="numeric" placeholder="R$ 0,00" required></div>
+            <div class="campo"><label class="lbl" for="e-data">Pagamento previsto</label><input id="e-data" type="date" required></div>
+          </div>
+          <div class="campo"><label class="lbl" for="e-qtd">Quantidade de profissionais</label><input id="e-qtd" inputmode="numeric" maxlength="4" placeholder="Ex.: 12"></div>
+          <div class="campo"><label class="lbl" for="e-obs">Observações (sem dados de pacientes)</label><textarea id="e-obs" maxlength="800"></textarea></div>
+          <div class="campo"><label class="lbl" for="e-arq">Escala ou relação (PDF, planilha ou imagem, até 10 MB)</label>
+            <input id="e-arq" type="file" accept=".pdf,.xlsx,.xls,.csv,.png,.jpg,.jpeg" multiple></div>
+          <button class="btn btn-t" type="submit" id="e-ok">Enviar para a JPG <svg><use href="#i-seta"/></svg></button>
+          <p class="msg" id="e-msg" role="alert"></p>
+        </form>
+
+        <div class="hist" id="hist"><h3>Seus envios</h3><ul id="hist-l"></ul></div>
+        <div class="troca"><button type="button" class="linkbtn" id="sair">Sair</button></div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<script src="vendor/supabase.js"></script>
+<script src="config.js"></script>
+<script src="portal.js" defer></script>
+</body>
+</html>
