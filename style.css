@@ -91,7 +91,7 @@ section{padding:120px 0}
 .head h2{margin:14px 0 16px}
 
 /* simulador */
-.sim .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:72px;align-items:center}
+.sim .wrap{display:block;max-width:760px}
 .phone{position:relative;width:300px;margin-inline:auto}
 .phone-body{background:#0F1E30;border-radius:46px;padding:12px;box-shadow:var(--sombra-2),0 0 0 2px #2b3a4d inset}
 .screen{background:linear-gradient(180deg,var(--indigo) 0%,var(--indigo-3) 100%);border-radius:36px;height:590px;padding:22px 18px;color:var(--papel);overflow:hidden;position:relative}
